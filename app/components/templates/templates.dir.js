@@ -6,11 +6,11 @@
         .controller('templates', templates);
 
 
-    function templates($scope, $http, $element){
-        $scope.closePane= function(){
+    function templates($scope, $http, $element,$state){
+        $scope.closePane= function(data){
             var vm = this;
-
             vm.parentTag = $element.parent()[0].remove();
+            $state.go(data);
         }
 
 

@@ -163,6 +163,7 @@ ul.sidebar .sidebar-list a {
     line-height: 32px;
     border-left: 3px solid transparent;
     width: 247px;
+    cursor: pointer;
 }
 ul.sidebar .sidebar-list a:hover {
     color: #fff;
@@ -346,7 +347,6 @@ md-toolbar input {
     overflow-x: scroll;
     overflow-y: hidden;
     float: left;
-    white-space: nowrap;
     width: 100%;
 }
 
@@ -360,6 +360,8 @@ md-toolbar input {
 .widgetPane md-content md-list-item a{
     width:100%;
     cursor: pointer;
+    text-decoration: none;
+    color: #8e8e8e;
 }
 
 .widgetPane md-content md-list-item a:hover{
@@ -375,6 +377,7 @@ md-toolbar input {
     margin-left: 0px;
     margin-top: 0;
     margin-bottom: 0;
+    min-width: 280px;
 }
 p{
 
@@ -382,7 +385,14 @@ p{
 
     padding: 10px;
 }
-.widgetPane md-toolbar{}
+.widgetPane md-toolbar{
+    border-top: 1px solid #424242;
+}
+.widgetPane md-content md-toolbar{
+    border-top: 1px solid #424242;
+    padding: 0 10px;
+    background-color: #2a2a2a !important;
+}
 
 .widgetPane md-toolbar h4{
 
@@ -406,7 +416,29 @@ p{
     overflow-y: auto;
     overflow-x: hidden;
 }
+md-input-container{
+    margin:0px
+}
+.widgetPane md-content md-toolbar .md-button{
 
+    text-transform: capitalize !important;
+
+    /* background: red; */
+
+    min-height: initial;
+
+    line-height: 12px;
+
+    border-radius: 0px;
+
+    border: 1px solid #008dff;
+
+    color: #008dff !important;
+
+    font-size: 13px;
+}
+
+.widgetPane md-content md-toolbar .md-button:hover{border-color: #15b4ff;color: #15b4ff !important;}
 
 
 

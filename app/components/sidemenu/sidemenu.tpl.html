@@ -3,20 +3,20 @@
         <md-tooltip>Side Panel</md-tooltip>
         <md-icon class="md-default-theme" class="material-icons">&#xE5D2;</md-icon>
     </md-button>
-        <ul class="sidebar">
-            <li class="sidebar-main">
-                <a ng-click="toggleSidebar()">
-                    Dashboard
-                    <i class="menu-icon material-icons">apps</i>
-                </a>
-            </li>
+    <ul class="sidebar">
+        <li class="sidebar-main">
+            <a ng-click="toggleSidebar()">
+                Dashboard
+                <i class="menu-icon material-icons">apps</i>
+            </a>
+        </li>
 
-            <li class="sidebar-list">
-                <a ui-sref=".templatelist">Templates <span class="menu-icon material-icons">widgets</span></a>
-            </li>
-            <li class="sidebar-list">
-                <a addwidget>Tables <span class="menu-icon fa fa-table"></span></a>
-            </li>
-        </ul>
+        <li class="sidebar-list">
+            <a ui-sref=".templatelist" ng-click="addanimate()">Templates <span class="menu-icon material-icons">widgets</span></a>
+        </li>
+        <li class="sidebar-list">
+            <a addwidget>Tables <span class="menu-icon fa fa-table"></span></a>
+        </li>
+    </ul>
 
-    </div>
+</div>

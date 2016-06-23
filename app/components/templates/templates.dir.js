@@ -86,10 +86,7 @@
         ];
 
 
-                $scope.templatesList = jsondata[0].templatesList;
-
-       
-
+        $scope.templatesList = jsondata[0].templatesList;
 
     }
 

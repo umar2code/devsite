@@ -7,7 +7,7 @@ angular.module('myApp.login', ['ngRoute','angular-storage', 'angular-jwt','auth0
 
     .config(['$routeProvider','authProvider', '$httpProvider', '$locationProvider',
         'jwtInterceptorProvider', function($routeProvider,authProvider, $httpProvider, $locationProvider,
-                                        jwtInterceptorProvider) {
+                                           jwtInterceptorProvider) {
 
             authProvider.init({
                 domain: 'veegamgithub.auth0.com',
@@ -43,7 +43,7 @@ angular.module('myApp.login', ['ngRoute','angular-storage', 'angular-jwt','auth0
             $httpProvider.interceptors.push('jwtInterceptor');
 
 
-    }])   .run(function($rootScope, auth, store, jwtHelper, $location) {
+        }])   .run(function($rootScope, auth, store, jwtHelper, $location) {
     $rootScope.$on('$locationChangeStart', function() {
 
         var token = store.get('token');
@@ -68,4 +68,4 @@ angular.module('myApp.login', ['ngRoute','angular-storage', 'angular-jwt','auth0
 
 
 
-}]);
+    }]);

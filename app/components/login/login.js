@@ -55,7 +55,7 @@ angular.module('myApp.login', ['ngRoute','angular-storage', 'angular-jwt','auth0
                 }
             } else {
                 // Either show the login page or use the refresh token to get a new idToken
-                $location.path('/components/login');
+                $location.path('/');
             }
         }
 

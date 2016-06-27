@@ -259,8 +259,12 @@ ul.sidebar .sidebar-list .menu-icon {
 }
 toolbar .md-toolbar-tools .md-button{
     min-width: 25px;
-    margin: 0px;
+    margin: 0px 5px;
     line-height: 10px;
+    padding: 0;
+}
+toolbar .md-toolbar-tools .md-button img{
+    margin: 0px;
 }
 md-toolbar, .md-toolbar-tools{
     min-height:36px;
@@ -268,7 +272,7 @@ md-toolbar, .md-toolbar-tools{
     background-color: rgb(45, 45, 45) !important;
 }
 md-toolbar img {
-    margin:0 10px
+    margin: 0 10px;
 }
 md-toolbar .user-img{
     width: 35px;
@@ -348,12 +352,12 @@ md-toolbar input {
     overflow-y: hidden;
     float: left;
     width: 100%;
+    white-space: nowrap;
 }
 
-.widget{
-    width:350px;
+.views{
+    /*width:350px;*/
     height:100%;
-    background-color: red;
     display: inline-block;
     white-space: normal;
 }
@@ -377,8 +381,27 @@ md-toolbar input {
     margin-left: 0px;
     margin-top: 0;
     margin-bottom: 0;
-    min-width: 280px;
 }
+.widgetPane.widthSmall {
+    min-width: 280px;
+    max-width: 280px;
+}
+
+.widgetPane.widthMedium {
+    min-width: 320px;
+    max-width: 320px;
+}
+
+.widgetPane.widthLarge {
+    min-width: 480px;
+    max-width: 480px;
+}
+
+.widgetPane.widthExtraLarge {
+    min-width: 540px;
+    max-width: 540px;
+}
+
 p{
 
     font-size: 13px;
@@ -417,13 +440,11 @@ p{
     overflow-x: hidden;
 }
 md-input-container{
-    margin:0px
+    margin:0px;
 }
-.widgetPane md-content md-toolbar .md-button{
+.widgetPane md-content md-toolbar a{
 
     text-transform: capitalize !important;
-
-    /* background: red; */
 
     min-height: initial;
 
@@ -436,11 +457,26 @@ md-input-container{
     color: #008dff !important;
 
     font-size: 13px;
+
+    line-height: 22px;
+
+    text-decoration: none;
+
+    padding: 0 10px;
 }
 
-.widgetPane md-content md-toolbar .md-button:hover{border-color: #15b4ff;color: #15b4ff !important;}
+.widgetPane md-content md-toolbar a:hover{border-color: #15b4ff;color: #15b4ff !important;background-color: rgba(0, 0, 0, 0.08);}
 
+.views{
+    position: relative;
+}
 
+.layout-fill{
+    overflow: hidden;
+    display: block;
+    width: inherit;
+    height: inherit;
+}
 
 
 

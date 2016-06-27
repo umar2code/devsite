@@ -12,8 +12,11 @@
         };
     }
 
-    function widgetWrapper(){
-
+    function widgetWrapper($element){
+        $element.css({
+            width: $element.parent()[0].offsetWidth + 'px',
+            height: $element.parent()[0].offsetHeight + 'px'
+        });
     }
 
 })();

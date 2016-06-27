@@ -10,18 +10,20 @@ angular.module('myApp.layout', ['ngRoute'])
 
  }])*/
 
-    .controller('View1Ctrl', [function() {
-
-
+    .controller('View1Ctrl', [function($scope, element, attrs) {
     }])
     .directive('master',function () {
-        function link(scope, element, attrs) {
+        function link(scope, element) {
             scope.$watch(function(){
                 scope.style = {
-                    height:(element[0].offsetHeight)-36+'px',
-                   // width:(element[0].offsetWidth)+'px'
+                    //height:(element[0].offsetHeight - 36)+'px'
+                    //width:(element[0].scrollWidth)+'px'
                 };
-            });
+            }
+
+            );
+
+
         }
         return {
             restrict: 'AE',

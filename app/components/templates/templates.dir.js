@@ -11,7 +11,34 @@
             var vm = this;
             vm.parentTag = $element.parent()[0].remove();
             $state.go(data);
-        }
+            vm.animate = false;
+        };
+        // var documentResult = document.getElementsByClassName("widgetPane");
+        // var wrappedDocumentResult = angular.element(documentResult);
+        // angular.forEach(wrappedDocumentResult, function( el ){
+        //     //angular.element(el).doSomething();
+        //
+        //     if(angular.element(el).hasClass('widthSmall')){
+        //         alert(this);
+        //         wrappedDocumentResult.parent().addClass('widthSmaller');
+        //     }
+        //     if(angular.element(el).hasClass('widthMedium')){
+        //         alert(2);
+        //         wrappedDocumentResult.addClass('widthMedium');
+        //     }
+        //     if(angular.element(el).hasClass('widthLarge')){
+        //         alert(3);
+        //         wrappedDocumentResult.addClass('widthLarge');
+        //     }
+        //     if(angular.element(el).hasClass('widthExtraLarge')){
+        //         alert(4);
+        //         wrappedDocumentResult.addClass('widthExtraLarge');
+        //     }
+        // });
+
+
+
+
 
 
         var jsondata = [

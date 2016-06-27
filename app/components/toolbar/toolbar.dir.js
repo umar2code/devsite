@@ -14,6 +14,11 @@
     }
 
     function toolbarController( $scope, auth, $http, $location, store, $rootScope ){
+        var originatorEv;
+        this.openMenu = function($mdOpenMenu, ev) {
+            originatorEv = ev;
+            $mdOpenMenu(ev);
+        };
         $scope.auth = auth;
         $scope.logout = function() {
             auth.signout();

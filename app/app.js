@@ -54,7 +54,7 @@ config([
                     "success.templatelist": {
                         templateUrl: 'components/templates/templates.tpl.html',
                         controller: function($scope){
-                            $scope.animate = false;
+                            $scope.animate = true;
                         }
 
                     }
@@ -66,10 +66,16 @@ config([
                 url: '/templatesdescription',
                 views: {
                     "success.templatelist": {
-                        templateUrl: 'components/templates/templates.tpl.html'
+                        templateUrl: 'components/templates/templates.tpl.html',
+                        controller: function($scope){
+                            $scope.animate = false;
+                        }
                     },
                     "success.templatelist.templatesdescription": {
-                        templateUrl: 'components/templates/templates-desc.tpl.html'
+                        templateUrl: 'components/templates/templates-desc.tpl.html',
+                        controller: function($scope){
+                            $scope.animate = true;
+                        }
                     },
                     "success.templatelist.templatesjson": {
                         templateUrl: 'components/templates/templates-json.tpl.html',
@@ -81,15 +87,28 @@ config([
                 },
                 parent:'success'
             })
-            .state('settings.profile', {
-                url: '/profile',
-                templateUrl: 'templates/profile.html',
-                controller: 'ProfileController'
-            })
-            .state('settings.account', {
-                url: '/account',
-                templateUrl: 'templates/account.html',
-                controller: 'AccountController'
-            });
+            .state('success.editTemplate', {
+            url: '/editTemplate',
+            views: {
+                "success.templatelist": {
+                    templateUrl: 'components/templates/editGui.tpl.html'
+                },
+                "success.templatelist.templatesdescription": {
+                    templateUrl: 'components/templates/editDescriptiontemplate.tpl.html'
+                },
+                "success.templatelist.templatesjson": {
+                    templateUrl: 'components/templates/editJsontemplate.tpl.html',
+                    controller: function($scope){
+                        $scope.animate = false;
+                    }
+                },
+                "success.templatelist.editTemplate": {
+                    templateUrl: 'components/templates/editVisual.tpl.html'
+                },
+
+            },
+            parent:'success'
+        });
+
         //$urlRouterProvider.otherwise('/components/login');
     }]);

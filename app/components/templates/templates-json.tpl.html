@@ -1,4 +1,4 @@
-<div class='widgetPane' ng-controller="templates">
+<div class='widgetPane widthExtraLarge' ng-controller="templates" ng-class="{'slideInLeft animated': animate, '': !animate}">
      <md-toolbar layout='row' layout-align='space-between center'>
           <h4>JSON</h4>
           <div layout='row' layout-align='end center'>
@@ -9,7 +9,7 @@
      </md-toolbar>
      <md-content layout="column">
           <md-toolbar layout='row' layout-align='end center'>
-                    <md-button ng-click="closePane('success')">Use This Template</md-button>
+              <a ui-sref="success.editTemplate">Use This Template</a>
           </md-toolbar>
           <pre>
 [

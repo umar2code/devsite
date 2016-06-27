@@ -3,16 +3,12 @@
     <div  id="content-wrapper" layout="column">
         <toolbar></toolbar>
         <md-content layout-fill layout="row" master>
-
-            <div ui-view="success.templatelist" class="views"  >
+            <div class="widgetsWrapper" id="widgetsWrapper" ng-style="style">
+                        <div ui-view="success.templatelist" class="views" ></div>
+                        <div ui-view="success.templatelist.templatesdescription" class="views"></div>
+                        <div ui-view="success.templatelist.templatesjson" class="views"></div>
+                        <div ui-view="success.templatelist.editTemplate" class="views"></div>
             </div>
-            <div ui-view="success.templatelist.templatesdescription" class="views">
-
-            </div>
-            <div ui-view="success.templatelist.templatesjson" class="views">
-
-            </div>
-
         </md-content>
     </div>
 </div>

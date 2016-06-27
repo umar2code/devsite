@@ -1,8 +1,8 @@
 <div ui-view=""  id="page-wrapper" ng-class="{'open': toggle}" ng-cloak>
-    <sidemenu></sidemenu>
+    <sidemenu id="sidebar-wrapper"></sidemenu>
     <div  id="content-wrapper" layout="column">
         <toolbar></toolbar>
-        <md-content layout-fill layout="row" master>
+        <md-content layout-fill layout="row" class="panesContainer" id="panesContainer" ng-controller="View1Ctrl">
             <div class="widgetsWrapper" id="widgetsWrapper" ng-style="style">
                         <div ui-view="success.templatelist" class="views" ></div>
                         <div ui-view="success.templatelist.templatesdescription" class="views"></div>

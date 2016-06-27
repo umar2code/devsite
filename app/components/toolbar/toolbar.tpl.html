@@ -20,11 +20,12 @@
                 </md-button>
                 <md-button class="md-primary dropdown" ng-click="myDropdownIsActive=!myDropdownIsActive" ng-class="{active:myDropdownIsActive}">
                     <img class="user-img" src="{{auth.profile.picture}}" />
-                    <ul class="dropdown-menu md-whiteframe-z1">
-                        <li><md-button class="user-name">Welcome {{auth.profile.nickname}}</md-button></li>
-                        <li><md-button ng-click="logout()">Log out</md-button></li>
-                    </ul>
+
                 </md-button>
+                <ul class="dropdown-menu md-whiteframe-z1">
+                    <li><md-button class="user-name">Welcome {{auth.profile.nickname}}</md-button></li>
+                    <li><md-button ng-click="logout()">Log out</md-button></li>
+                </ul>
             </div>
         </div>
     </md-toolbar>

@@ -33,9 +33,18 @@ html, body{
 }
 
 #a0-lock.a0-theme-default .a0-overlay.a0-active {
-    background: -webkit-radial-gradient(rgba(64,64,75,.9),rgba(17,17,24,.9)) rgba(34,34,40,.52) !important;
+    /* background: -webkit-radial-gradient(rgba(64,64,75,.9),rgba(17,17,24,.9)) rgba(34,34,40,.52) !important; */
     background: -moz-radial-gradient(rgba(64,64,75,.9),rgba(17,17,24,.9)) rgba(34,34,40,.52);
-    background: radial-gradient(rgba(1, 255, 9, 0.9),rgba(255, 35, 0, 0.95)) rgba(34, 34, 40, 0) !important;
+    /* background: radial-gradient(rgba(1, 255, 9, 0.9),rgba(255, 35, 0, 0.95)) rgba(34, 34, 40, 0) !important; */
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+}
+
+#a0-lock.a0-theme-default .a0-overlay.a0-active .a0-panel{
+
+    box-shadow: none !important;
+
+    border: 1px solid #ccc;
 }
 
 

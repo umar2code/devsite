@@ -13,33 +13,6 @@
             $state.go(data);
             vm.animate = false;
         };
-        // var documentResult = document.getElementsByClassName("widgetPane");
-        // var wrappedDocumentResult = angular.element(documentResult);
-        // angular.forEach(wrappedDocumentResult, function( el ){
-        //     //angular.element(el).doSomething();
-        //
-        //     if(angular.element(el).hasClass('widthSmall')){
-        //         alert(this);
-        //         wrappedDocumentResult.parent().addClass('widthSmaller');
-        //     }
-        //     if(angular.element(el).hasClass('widthMedium')){
-        //         alert(2);
-        //         wrappedDocumentResult.addClass('widthMedium');
-        //     }
-        //     if(angular.element(el).hasClass('widthLarge')){
-        //         alert(3);
-        //         wrappedDocumentResult.addClass('widthLarge');
-        //     }
-        //     if(angular.element(el).hasClass('widthExtraLarge')){
-        //         alert(4);
-        //         wrappedDocumentResult.addClass('widthExtraLarge');
-        //     }
-        // });
-
-
-
-
-
 
         var jsondata = [
             {
@@ -114,6 +87,20 @@
 
 
         $scope.templatesList = jsondata[0].templatesList;
+
+        // Edit Json Code
+        $scope.obj = {data: jsondata, options: {mode: 'tree'}};
+        $scope.onLoad = function (instance) {
+            instance.expandAll();
+        };
+
+        $scope.changeOptions = function () {
+            $scope.obj.options.mode = $scope.obj.options.mode == 'tree' ? 'code' : 'tree';
+        };
+
+        $scope.pretty = function (obj) {
+            return angular.toJson(obj, true);
+        }
 
     }
 

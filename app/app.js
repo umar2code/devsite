@@ -8,7 +8,8 @@ angular.module('myApp', [
     'ngCookies',
     'myApp.login',
     'auth0',
-    'ui.router'
+    'ui.router',
+    'ng.jsoneditor'
 ]).
 config([
     '$locationProvider',

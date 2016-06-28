@@ -496,7 +496,7 @@ p{
 md-input-container{
     margin:0px;
 }
-.widgetPane md-content md-toolbar a{
+.widgetPane md-content md-toolbar a, .widgetPane md-content md-toolbar button{
 
     text-transform: capitalize !important;
 

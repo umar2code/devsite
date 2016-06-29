@@ -10,7 +10,7 @@
         $scope.profile=store.get('profile');
         $scope.createRepo= function(){
             var vm = this;
-            debugger;
+
             $scope.accessToken=$scope.profile.identities[0].access_token;
             var createUrl='https://api.github.com/user/repos?access_token='+$scope.accessToken;
             $scope.repoName="TestArmTemplate";
@@ -31,7 +31,11 @@
             $http(req).success(function(response) {
                 console.log('success');
                 alert('created')
-            });
+            }).error(function(data, status, headers, config){
+
+                alert(data.message+' ,'+"something went wrong");
+                console.log(data,status)
+            })
 
             var jsondata = [
                 {

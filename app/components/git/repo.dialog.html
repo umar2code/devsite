@@ -1,0 +1,35 @@
+<div class='widgetPane widthSmall' ng-class="{'slideInLeft animated': animate, '': !animate}" ng-controller="templates">
+    <md-toolbar layout='row' layout-align='space-between center'>
+        <h4>Commit</h4>
+        <div layout='row' layout-align='end center'>
+            <md-button>-</md-button>
+            <md-button>+</md-button>
+            <md-button ng-click="closePane('success')">x</md-button>
+        </div>
+    </md-toolbar>
+    <md-content layout="column">
+        <md-input-container>
+
+        </md-input-container>
+        <md-list>
+            <md-list-item >
+                <a layout="row" layout-align="space-between center" ng-click='viewRepo()'>
+                    <span>View Repo</span>
+                    <i class="material-icons">keyboard_arrow_right</i>
+                </a>
+            </md-list-item>
+            <md-list-item >
+                <md-button ng-click="createRepo()" >New Repo</md-button>
+                <md-button  ng-click="commitCode()">Commit</md-button>
+            </md-list-item>
+
+
+
+        </md-list>
+
+        <ul ng-repeat="repo in repoList" ng-if="repoList&&!createnew&&!commit" >
+
+            <li ><a href="#">{{repo.name }}</a></li>
+        </ul>
+    </md-content>
+</div>

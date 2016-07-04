@@ -7,37 +7,42 @@
 
 
     function templates($scope, $http, $state,store,auth,$mdDialog){
+        $scope.gitList=[{name:"View ",action:"ng-click='viewRepo()'"},{name:"Create New ",action:"ng-click='createRepo()'"},
+            {name:"Commit ",action:"ng-click='commit()'"}]
         $scope.profile=store.get('profile');
+        $scope.repoList;
+        $scope.createnew;
+        $scope.commit;
+
+        $scope.createRepo=function(){
+            $scope.createnew=false;
+            $scope.commit=false;
+
+
+           alert("clicked")
+        }
+        $scope.commitCode=function(){
+            $scope.createnew=false;
+            $scope.commit=false;
+
+
+            alert("clicked")
+        }
         $scope.viewRepo= function(ev) {
+            $scope.createnew=false;
+            $scope.commit=false;
+            alert("clicked")
             var vm = this;
-
-
-            $scope.accessToken = $scope.profile.identities[0].access_token;
+         $scope.accessToken = $scope.profile.identities[0].access_token;
             var createUrl = 'https://api.github.com/user/repos?access_token=' + $scope.accessToken;
             var req = {
                 method: 'GET',
                 url: createUrl,
             }
-            $http(req).success(function (response) {
-
-                vm.repoList = "Prad"; //angular.toJson(response);
-                alert("Getting all repos Please see in console for dev purpose");
-                console.log('ss'+vm.repoList);
-                $mdDialog.show({
-                    controller: templates,
-                    templateUrl: 'components/templates/repo.dialog.html',
-                    parent: angular.element(document.body),
-                    targetEvent: ev,
-                    clickOutsideToClose:true
-                })
-                    .then(function(answer) {
-                        $scope.status = 'You said the information was "' + answer + '".';
-                    }, function() {
-                        $scope.status = 'You cancelled the dialog.';
-                    });
+           $http(req).success(function (response) {
+            $scope.repoList =response;
             }).error(function (data, status, headers, config) {
-
-                alert(data.message + ' ,' + "something went wrong");
+             alert(data.message + ' ,' + "something went wrong");
                 console.log(data, status)
             })
         }

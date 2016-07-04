@@ -109,6 +109,33 @@ config([
 
             },
             parent:'success'
+        })
+
+        .state('success.editTemplate.git', {
+            url: '/git',
+            views: {
+                "success.templatelist": {
+                    templateUrl: 'components/templates/editGui.tpl.html'
+                },
+                "success.templatelist.templatesdescription": {
+                    templateUrl: 'components/templates/editDescriptiontemplate.tpl.html'
+                },
+                "success.templatelist.templatesjson": {
+                    templateUrl: 'components/templates/editJsontemplate.tpl.html',
+                    controller: function($scope){
+                        $scope.animate = false;
+                    }
+                },
+                "success.templatelist.editTemplate": {
+                    templateUrl: 'components/templates/editVisual.tpl.html'
+                },
+                "success.templatelist.git": {
+                    templateUrl: 'components/git/repo.dialog.html'
+                },
+
+
+            },
+            parent:'success'
         });
 
         //$urlRouterProvider.otherwise('/components/login');

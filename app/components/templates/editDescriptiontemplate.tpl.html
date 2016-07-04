@@ -11,10 +11,13 @@
         Edit Description
 
         <div layout='row' layout-align='end center'>
-            <md-button ng-click="viewRepo($event)">Commit and save</md-button>
+            <md-button ui-sref=".git" >Commit and save</md-button>
 
         </div>
 
 
+        <ul ng-repeat="repo in repoList">
+            <li>{{repo.name }}</li>
+        </ul>
     </md-content>
 </div>

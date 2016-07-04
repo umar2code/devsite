@@ -10,7 +10,20 @@ angular.module('myApp', [
     'auth0',
     'ui.router',
     'ng.jsoneditor'
-]).
+]).factory('factoryServices', function(){
+    return {
+
+        scrollRight :function (){
+        var children = $('#widgetsWrapper').children();
+        var totalWidth = 0;
+        for (var i = 0; i < children.length; i++) {
+            totalWidth += children[i].offsetWidth;
+        }
+        var elem = $('#panesContainer');
+        elem.scrollLeft(totalWidth);
+    }
+}
+}).
 config([
     '$locationProvider',
     '$routeProvider',
@@ -130,7 +143,11 @@ config([
                     templateUrl: 'components/templates/editVisual.tpl.html'
                 },
                 "success.templatelist.git": {
-                    templateUrl: 'components/git/repo.dialog.html'
+                    templateUrl: 'components/git/repo.dialog.html',
+                    controller: function(factoryServices, $scope){
+                        factoryServices.scrollRight();
+                        $scope.animate = true;
+                    }
                 },
 
 

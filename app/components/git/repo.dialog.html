@@ -8,28 +8,20 @@
         </div>
     </md-toolbar>
     <md-content layout="column">
-        <md-input-container>
-
-        </md-input-container>
-        <md-list>
-            <md-list-item >
-                <a layout="row" layout-align="space-between center" ng-click='viewRepo()'>
-                    <span>View Repo</span>
-                    <i class="material-icons">keyboard_arrow_right</i>
-                </a>
-            </md-list-item>
-            <md-list-item >
-                <md-button ng-click="createRepo()" >New Repo</md-button>
-                <md-button  ng-click="commitCode()">Commit</md-button>
-            </md-list-item>
-
-
-
-        </md-list>
-
-        <ul ng-repeat="repo in repoList" ng-if="repoList&&!createnew&&!commit" >
-
-            <li ><a href="#">{{repo.name }}</a></li>
-        </ul>
+        <md-toolbar layout="row" layout-align="end center">
+            <md-button ng-click="viewRepo()">Repos</md-button>
+            <md-button ng-click="createRepo()">New</md-button>
+            <md-button ng-click="commitCode()">Committ</md-button>
+        </md-toolbar>
+        <div class="repos" ng-if="repoList&&!createnew&&!commit">
+            <md-list>
+                <md-list-item ng-repeat="repo in repoList" layout="row">
+                    <md-checkbox ng-model="repo.checked" ng-click="updateSelection($index, repoList)" ></md-checkbox>
+                    <a>{{repo.name }}</a></md-list-item>
+            </md-list>
+        </div>
+        <div class="repos" ng-if="!repoList&&createnew&&!commit">
+            NEW
+        </div>
     </md-content>
 </div>

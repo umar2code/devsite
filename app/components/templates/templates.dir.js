@@ -17,21 +17,14 @@
         $scope.createRepo=function(){
             $scope.createnew=false;
             $scope.commit=false;
-
-
-           alert("clicked")
         }
         $scope.commitCode=function(){
             $scope.createnew=false;
             $scope.commit=false;
-
-
-            alert("clicked")
         }
         $scope.viewRepo= function(ev) {
             $scope.createnew=false;
             $scope.commit=false;
-            alert("clicked")
             var vm = this;
          $scope.accessToken = $scope.profile.identities[0].access_token;
             var createUrl = 'https://api.github.com/user/repos?access_token=' + $scope.accessToken;
@@ -45,6 +38,12 @@
              alert(data.message + ' ,' + "something went wrong");
                 console.log(data, status)
             })
+            $scope.updateSelection = function(position, repoList) {
+                angular.forEach(repoList, function(subscription, index) {
+                    if (position != index)
+                        subscription.checked = false;
+                });
+            }
         }
 
             var jsondata = [

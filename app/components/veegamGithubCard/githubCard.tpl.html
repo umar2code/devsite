@@ -1,0 +1,19 @@
+<div class='widgetPane widthSmall' ng-class="{'slideInLeft animated': animate, '': !animate}" ng-controller="templates">
+    <md-toolbar layout='row' layout-align='end center'>
+        <h4>Github Repository</h4>
+        <div layout='row' layout-align='end center'>
+            <md-button>-</md-button>
+            <md-button>+</md-button>
+            <md-button ng-click="closePane('success')">x</md-button>
+        </div>
+    </md-toolbar>
+    <md-content>
+        <div>
+            Pradeep
+            {{repoList}}
+            <ul ng-repeat="b in repoList">
+                <li>{{b.name}}</li>
+            </ul>
+        </div>
+    </md-content>
+</div>

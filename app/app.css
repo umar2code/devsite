@@ -406,7 +406,7 @@ md-toolbar input {
     display: inline-block;
     height: 100%;
     padding-right: 40px;
-    word-spacing: -4px;
+    word-spacing: 0px;
 }
 
 .views{
@@ -500,9 +500,7 @@ md-input-container{
 
     text-transform: capitalize !important;
 
-    min-height: initial;
-
-    line-height: 12px;
+    min-height: 25px;
 
     border-radius: 0px;
 
@@ -512,11 +510,17 @@ md-input-container{
 
     font-size: 13px;
 
-    line-height: 22px;
+    line-height: 17px;
 
     text-decoration: none;
 
-    padding: 0 10px;
+    padding: 0 10px !important;
+
+    max-height: 25px;
+
+    height: 25px;
+
+    margin: 5px !important;
 }
 
 .widgetPane md-content md-toolbar a:hover{border-color: #15b4ff;color: #15b4ff !important;background-color: rgba(0, 0, 0, 0.08);}

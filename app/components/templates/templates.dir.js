@@ -6,31 +6,102 @@
         .controller('templates', templates);
 
 
-    function templates($scope, $http, $state,store,auth,$mdDialog){
-        $scope.gitList=[{name:"View ",action:"ng-click='viewRepo()'"},{name:"Create New ",action:"ng-click='createRepo()'"},
-            {name:"Commit ",action:"ng-click='commit()'"}]
+    function templates($scope, $http, $state,store,auth,$mdDialog,$rootScope){
+
         $scope.profile=store.get('profile');
         $scope.repoList;
-        $scope.createnew;
-        $scope.commit;
+        $scope.repoListPane=false;
+        $scope.newRepoPane=false;
+        $scope.commitPane=false;
+
 
         $scope.createRepo=function(){
-            $scope.createnew=false;
-            $scope.commit=false;
+            $scope.commitPane=false;
+            $scope.repoListPane=false;
+            $scope.newRepoPane=true;
+            
+             ////////////////////////
+            //////////////
+            /////logic
+            
         }
-        $scope.commitCode=function(){
-            $scope.createnew=false;
-            $scope.commit=false;
-        }
-        $scope.viewRepo= function(ev) {
-            $scope.createnew=false;
-            $scope.commit=false;
-            var vm = this;
-         $scope.accessToken = $scope.profile.identities[0].access_token;
+        ///////////////////////////////////////
+/////////////Creating New Repo
+        ///////////////////////////////////////
+        $scope.submitRepo=function(repoName,repoDesc){
+            $scope.accessToken = $scope.profile.identities[0].access_token;
             var createUrl = 'https://api.github.com/user/repos?access_token=' + $scope.accessToken;
+            debugger;
+            var req = {
+                method: 'POST',
+                url: createUrl,
+                data:
+            {
+                "name": repoName,
+                "description": repoDesc,
+                "homepage": "https://github.com",
+                "private": false
+
+            }
+
+            }
+            $http(req).success(function (response) {
+                alert("repo created")
+            }).error(function (data, status, headers, config) {
+                alert(data.message + ' ,' + "something went wrong");
+                console.log(data, status)
+            })
+            }
+
+        $scope.commitCode=function(){
+            $scope.repoListPane=false;
+            $scope.newRepoPane=false;
+            $scope.commitPane=true;
+            ////////////////////////
+            //////////////
+            /////logic
+
+        }
+        $scope.commitRepo=function (repoName,comment,branch) {
+            //////////////////////////////////////
+            ////////////////////getting sha key
+            ////////////////////////////////////////
+           $scope.accessName = $scope.profile.nickname;
+            var shaUrl = 'https://api.github.com/repos/'+$scope.accessName+'/'+repoName+'/git/refs';
             var req = {
                 method: 'GET',
-                url: createUrl,
+                url: shaUrl,
+            }
+            $http(req).success(function (response) {
+                alert("Only Getting SHA KEY commit is pending ..Thank you")
+                $scope.lastsha =response.object.sha;
+
+            }).error(function (data, status, headers, config) {
+                alert(data.message + ' ,' + "something went wrong");
+                console.log(data, status)
+            })
+
+
+            /////////////////////////////////
+            ///////////API call for create branch
+            ////////////////////////
+
+
+
+
+
+
+        }
+        $scope.viewRepo= function(ev) {
+            $scope.commitPane=false;
+           $scope.newRepoPane=false;
+            $scope.repoListPane=true;
+            var vm = this;
+         $scope.accessToken = $scope.profile.identities[0].access_token;
+            var viewUrl = 'https://api.github.com/user/repos?access_token=' + $scope.accessToken;
+            var req = {
+                method: 'GET',
+                url: viewUrl,
             }
            $http(req).success(function (response) {
             $scope.repoList =response;
@@ -38,11 +109,14 @@
              alert(data.message + ' ,' + "something went wrong");
                 console.log(data, status)
             })
-            $scope.updateSelection = function(position, repoList) {
+            $scope.updateSelection = function(position, repoList,name) {
+
+             $scope.selectedRepo=name;
                 angular.forEach(repoList, function(subscription, index) {
                     if (position != index)
                         subscription.checked = false;
                 });
+                $scope.checked=true;
             }
         }
 

@@ -1,19 +1,27 @@
-    <md-button class="md-icon-button" aria-label="Side Panel" ng-click="toggleLeft()" ng-hide="isOpenLeft()" >
-        <md-tooltip>Side Panel</md-tooltip>
-        <md-icon class="md-default-theme" class="material-icons">&#xE5D2;</md-icon>
-    </md-button>
+    <header>
+
     <ul class="sidebar">
-        <li class="sidebar-main">
-            <a ng-click="toggleSidebar()">
+        <li class="sidebar-list">
+            <a ng-click="toggleSidebar()" >
+                <i class="material-icons">dehaze</i>
+            </a>
+        </li>
+        <li class="sidebar-list">
+            <a>
                 Dashboard
-                <i class="menu-icon material-icons">apps</i>
+                <i class="material-icons">widgets</i>
             </a>
         </li>
 
         <li class="sidebar-list">
-            <a ui-sref=".templatelist" ng-click="addanimate()">Templates <span class="menu-icon material-icons">widgets</span></a>
+            <a ui-sref=".templatelist" ng-click="addanimate()">Templates <span class="material-icons">widgets</span></a>
         </li>
         <li class="sidebar-list">
             <a addwidget>Tables <span class="menu-icon fa fa-table"></span></a>
         </li>
     </ul>
+    </header>
+
+    <footer layout="row" layout-align="end center">
+        <i class="material-icons">keyboard_arrow_left</i>
+    </footer>

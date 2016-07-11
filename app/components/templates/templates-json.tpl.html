@@ -1,4 +1,4 @@
-<div class='widgetPane widthExtraLarge' ng-controller="templates" ng-class="{'slideInLeft animated': animate, '': !animate}">
+<div class='widgetPane widthExtraLarge' ng-class="{'slideInLeft animated': animate, '': !animate}">
      <md-toolbar layout='row' layout-align='space-between center'>
           <h4>JSON</h4>
           <div layout='row' layout-align='end center'>
@@ -11,69 +11,7 @@
           <md-toolbar layout='row' layout-align='end center'>
               <a ui-sref="success.editTemplate" ng-click="createRepo()">Use This Template</a>
           </md-toolbar>
-          <pre>
-[
-   {
-      "templatesList":[
-         {
-            "templateItem":{
-               "href":"templatesdescription",
-               "name":"Template 1"
-            },
-            "templateItemDescription":"Lorem Loreem Loreeem Ipsum Ipsuum Ipsuuum ..."
-         },
-         {
-            "templateItem":{
-               "href":"http://example.com/event1",
-               "name":"Template 2"
-            },
-            "templateItemDescription":"Lorem Loreem Loreeem Ipsum Ipsuum Ipsuuum ..."
-         },
-         {
-            "templateItem":{
-               "href":"http://example.com/event1",
-               "name":"Template 3"
-            },
-            "templateItemDescription":"Lorem Loreem Loreeem Ipsum Ipsuum Ipsuuum ..."
-         },
-         {
-            "templateItem":{
-               "href":"http://example.com/event1",
-               "name":"Template 4"
-            },
-            "templateItemDescription":"Lorem Loreem Loreeem Ipsum Ipsuum Ipsuuum ..."
-         },
-         {
-            "templateItem":{
-               "href":"http://example.com/event1",
-               "name":"Template 5"
-            },
-            "templateItemDescription":"Lorem Loreem Loreeem Ipsum Ipsuum Ipsuuum ..."
-         },
-         {
-            "templateItem":{
-               "href":"http://example.com/event1",
-               "name":"Template 6"
-            },
-            "templateItemDescription":"Lorem Loreem Loreeem Ipsum Ipsuum Ipsuuum ..."
-         },
-         {
-            "templateItem":{
-               "href":"http://example.com/event1",
-               "name":"Template 7"
-            },
-            "templateItemDescription":"Lorem Loreem Loreeem Ipsum Ipsuum Ipsuuum ..."
-         },
-         {
-            "templateItem":{
-               "href":"http://example.com/event1",
-               "name":"Template 8"
-            },
-            "templateItemDescription":"Lorem Loreem Loreeem Ipsum Ipsuum Ipsuuum ..."
-         }
-      ]
-   }
-]
-          </pre>
+          <p id="jsonEditor"></p>
+
      </md-content>
 </div>

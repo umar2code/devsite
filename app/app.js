@@ -76,31 +76,32 @@ config([
                 parent:'success'
 
             })
-            .state('success.templatelist.templatesdescription', {
-                url: '/templatesdescription',
-                views: {
-                    "success.templatelist": {
-                        templateUrl: 'components/templates/templates.tpl.html',
-                        controller: function($scope){
-                            $scope.animate = false;
+                .state('success.templatelist.templatesDescriptionJson', {
+                    url: '/templatesDescriptionJson?templateID',
+                    params: {"templateID":null},
+                    views: {
+                        "success.templatelist": {
+                            templateUrl: 'components/templates/templates.tpl.html',
+                            controller: function($scope){
+                                $scope.animate = false;
+                            }
+                        },
+                        "success.templatelist.templatesdescription": {
+                            templateUrl: 'components/templates/templates-desc.tpl.html',
+                            controller: function($scope){
+                                $scope.animate = true;
+                            }
+                        },
+                        "success.templatelist.templatesjson": {
+                            templateUrl: 'components/templates/templates-json.tpl.html',
+                            controller: function($scope){
+                                $scope.animate = true;
+                            }
                         }
-                    },
-                    "success.templatelist.templatesdescription": {
-                        templateUrl: 'components/templates/templates-desc.tpl.html',
-                        controller: function($scope){
-                            $scope.animate = true;
-                        }
-                    },
-                    "success.templatelist.templatesjson": {
-                        templateUrl: 'components/templates/templates-json.tpl.html',
-                        controller: function($scope){
-                            $scope.animate = true;
-                        }
-                    }
 
-                },
-                parent:'success'
-            })
+                    },
+                    parent:'success'
+                })
             .state('success.editTemplate', {
             url: '/editTemplate',
             views: {

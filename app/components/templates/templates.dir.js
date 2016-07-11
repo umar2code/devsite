@@ -1,12 +1,11 @@
 
 (function () {
     'use strict';
-    angular
-        .module('myApp')
-        .controller('templates', templates);
+   var app = angular.module('myApp');
+        app.controller('templates', templates);
 
 
-    function templates($scope, $http, $state,store,auth,$mdDialog,$rootScope){
+    function templates($scope, $http, $state,store,auth,$mdDialog,$rootScope, $stateParams, $filter){
 
         $scope.profile=store.get('profile');
         $scope.repoList;
@@ -19,11 +18,11 @@
             $scope.commitPane=false;
             $scope.repoListPane=false;
             $scope.newRepoPane=true;
-            
-             ////////////////////////
+
+            ////////////////////////
             //////////////
             /////logic
-            
+
         }
         ///////////////////////////////////////
 /////////////Creating New Repo
@@ -36,13 +35,13 @@
                 method: 'POST',
                 url: createUrl,
                 data:
-            {
-                "name": repoName,
-                "description": repoDesc,
-                "homepage": "https://github.com",
-                "private": false
+                {
+                    "name": repoName,
+                    "description": repoDesc,
+                    "homepage": "https://github.com",
+                    "private": false
 
-            }
+                }
 
             }
             $http(req).success(function (response) {
@@ -51,7 +50,7 @@
                 alert(data.message + ' ,' + "something went wrong");
                 console.log(data, status)
             })
-            }
+        }
 
         $scope.commitCode=function(){
             $scope.repoListPane=false;
@@ -66,7 +65,7 @@
             //////////////////////////////////////
             ////////////////////getting sha key
             ////////////////////////////////////////
-           $scope.accessName = $scope.profile.nickname;
+            $scope.accessName = $scope.profile.nickname;
             var shaUrl = 'https://api.github.com/repos/'+$scope.accessName+'/'+repoName+'/git/refs';
             var req = {
                 method: 'GET',
@@ -94,24 +93,24 @@
         }
         $scope.viewRepo= function(ev) {
             $scope.commitPane=false;
-           $scope.newRepoPane=false;
+            $scope.newRepoPane=false;
             $scope.repoListPane=true;
             var vm = this;
-         $scope.accessToken = $scope.profile.identities[0].access_token;
+            $scope.accessToken = $scope.profile.identities[0].access_token;
             var viewUrl = 'https://api.github.com/user/repos?access_token=' + $scope.accessToken;
             var req = {
                 method: 'GET',
                 url: viewUrl,
             }
-           $http(req).success(function (response) {
-            $scope.repoList =response;
+            $http(req).success(function (response) {
+                $scope.repoList =response;
             }).error(function (data, status, headers, config) {
-             alert(data.message + ' ,' + "something went wrong");
+                alert(data.message + ' ,' + "something went wrong");
                 console.log(data, status)
             })
             $scope.updateSelection = function(position, repoList,name) {
 
-             $scope.selectedRepo=name;
+                $scope.selectedRepo=name;
                 angular.forEach(repoList, function(subscription, index) {
                     if (position != index)
                         subscription.checked = false;
@@ -120,94 +119,36 @@
             }
         }
 
-            var jsondata = [
-                {
-                    "templatesList": [
-                        {
-                            "templateItem": {
-                                "root": ".templatesdescription",
-                                "name": "Working Template"
-                            },
+        var templateAPI = 'https://raw.githubusercontent.com/sysgain/veegamServices/master/templates.json';
+        var req = {
+            method: 'GET',
+            url: templateAPI,
+        }
+        $http(req).success(function (data) {
+            console.log('response', data);
+            $scope.Lists = data[0].templatesList;
+            var currentId = $stateParams.templateID;
+            var res =  $scope.Lists;
+            var respectiveDescription = ($filter('filter')(res, {templateItemID :currentId}));
+            $scope.templateDescription = respectiveDescription[0].templateItemDescription;
+            var respectiveJson = ($filter('filter')(res, {templateItemID :currentId}));
+            $scope.templateJson = respectiveDescription[0].templateItemJson;
+                var ele = document.getElementById('jsonEditor');
+                console.log('ele',ele);
+                var options = {
+                    mode: 'view'
+                };
+                var json = $scope.templateJson;
+                var editor = new JSONEditor(ele, options, json);
+        }).error(function (data, status, headers, config) {
+            alert(data.message + ' ,' + "something went wrong");
+            console.log(data, status)
+        });
 
-                            "templateItemDescription": "Lorem Loreem Loreeem Ipsum Ipsuum Ipsuuum ..."
-                        },
-                        {
-                            "templateItem": {
-                                "root": "http://example.com/event1",
-                                "name": "Template 2"
-                            },
-
-                            "templateItemDescription": "Lorem Loreem Loreeem Ipsum Ipsuum Ipsuuum ..."
-                        },
-                        {
-                            "templateItem": {
-                                "root": "http://example.com/event1",
-                                "name": "Template 3"
-                            },
-
-                            "templateItemDescription": "Lorem Loreem Loreeem Ipsum Ipsuum Ipsuuum ..."
-                        },
-                        {
-                            "templateItem": {
-                                "root": "http://example.com/event1",
-                                "name": "Template 4"
-                            },
-
-                            "templateItemDescription": "Lorem Loreem Loreeem Ipsum Ipsuum Ipsuuum ..."
-                        },
-                        {
-                            "templateItem": {
-                                "root": "http://example.com/event1",
-                                "name": "Template 5"
-                            },
-
-                            "templateItemDescription": "Lorem Loreem Loreeem Ipsum Ipsuum Ipsuuum ..."
-                        },
-                        {
-                            "templateItem": {
-                                "root": "http://example.com/event1",
-                                "name": "Template 6"
-                            },
-
-                            "templateItemDescription": "Lorem Loreem Loreeem Ipsum Ipsuum Ipsuuum ..."
-                        },
-                        {
-                            "templateItem": {
-                                "root": "http://example.com/event1",
-                                "name": "Template 7"
-                            },
-
-                            "templateItemDescription": "Lorem Loreem Loreeem Ipsum Ipsuum Ipsuuum ..."
-                        },
-                        {
-                            "templateItem": {
-                                "root": "http://example.com/event1",
-                                "name": "Template 8"
-                            },
-
-                            "templateItemDescription": "Lorem Loreem Loreeem Ipsum Ipsuum Ipsuuum ..."
-                        }
-                    ]
-                }
-            ];
-
-
-            $scope.templatesList = jsondata[0].templatesList;
-
-            // Edit Json Code
-            $scope.obj = {data: jsondata, options: {mode: 'tree'}};
-            $scope.onLoad = function (instance) {
-                instance.expandAll();
-            };
-
-            $scope.changeOptions = function () {
-                $scope.obj.options.mode = $scope.obj.options.mode == 'tree' ? 'code' : 'tree';
-            };
-
-            $scope.pretty = function (obj) {
-                return angular.toJson(obj, true);
-            }
-
+        $scope.selectedTemplate = function(id) {
+            $scope.tempId = id;
+            $state.go('.templatesDescriptionJson',{'templateID':id});
+        }
 
         $scope.closePane= function(data){
             var vm = this;
@@ -215,29 +156,5 @@
             $state.go(data);
             vm.animate = false;
         };
-
-
-
-
-        
-
-
-        $scope.templatesList = jsondata[0].templatesList;
-
-        // Edit Json Code
-        $scope.obj = {data: jsondata, options: {mode: 'tree'}};
-        $scope.onLoad = function (instance) {
-            instance.expandAll();
-        };
-
-        $scope.changeOptions = function () {
-            $scope.obj.options.mode = $scope.obj.options.mode == 'tree' ? 'code' : 'tree';
-        };
-
-        $scope.pretty = function (obj) {
-            return angular.toJson(obj, true);
-        }
-
     }
-
 })();

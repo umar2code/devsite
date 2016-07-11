@@ -128,15 +128,15 @@ ul.sidebar .sidebar-list a:hover,
     background: #2d2d2d;
 }
 ul.sidebar {
-    position: absolute;
-    top: 0;
-    bottom: 0;
+    /* position: absolute; */
+    /* top: 0; */
+    /* bottom: 0; */
     padding: 0;
     margin: 0;
     list-style: none;
     text-indent: 20px;
-    overflow-x: hidden;
-    overflow-y: auto;
+    /* overflow-x: hidden; */
+    /* overflow-y: auto; */
 }
 ul.sidebar li a {
     color: #fff;
@@ -145,17 +145,17 @@ ul.sidebar li a {
     text-decoration: none;
     width: 250px;
 }
-ul.sidebar .sidebar-main {
+ul.sidebar .sidebar-list {
     height: 36px;
 }
-ul.sidebar .sidebar-main a {
+ul.sidebar .sidebar-list a {
     font-size: 18px;
     line-height: 36px;
 }
-ul.sidebar .sidebar-main a:hover {
+ul.sidebar .sidebar-list a:hover {
     cursor: pointer;
 }
-ul.sidebar .sidebar-main .menu-icon {
+ul.sidebar .sidebar-list .material-icons {
     float: right;
     font-size: 26px;
     padding-right: 8px;
@@ -302,7 +302,7 @@ toolbar .md-toolbar-tools .md-button img{
 md-toolbar, .md-toolbar-tools{
     min-height:36px;
     height:36px;
-    background-color: rgb(45, 45, 45) !important;
+    /* background-color: rgb(45, 45, 45) !important; */
 }
 md-toolbar img {
     margin: 0 10px;
@@ -398,6 +398,11 @@ md-toolbar input {
     font-size: 13px;
 }
 
+md-content.md-default-theme, md-content {
+    color: rgba(0,0,0,0.9);
+    background-color: rgb(255, 255, 255);
+}
+
 .open .widgetsWrapper{
     padding-right:250px;
 }
@@ -419,7 +424,7 @@ md-toolbar input {
     width:100%;
     cursor: pointer;
     text-decoration: none;
-    color: #8e8e8e;
+    color: rgba(0,0,0,0.9);
 }
 
 .widgetPane md-content md-list-item a:hover{
@@ -463,12 +468,12 @@ p{
     padding: 10px;
 }
 .widgetPane md-toolbar{
-    border-top: 1px solid #424242;
+    border-top: 1px solid rgb(255, 255, 255);
 }
 .widgetPane md-content md-toolbar{
     border-top: 1px solid #424242;
     padding: 0 10px;
-    background-color: #2a2a2a !important;
+    background-color: #d7dadf !important;
 }
 
 .widgetPane md-toolbar h4{
@@ -489,7 +494,7 @@ p{
 
 .widgetPane md-content {
     height: inherit;
-    background-color: #212121;
+    background-color: #e6e6e6;
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -546,3 +551,13 @@ md-input-container{
 
 
 
+md-input-container.md-default-theme .md-input, md-input-container .md-input {
+    color: rgba(255,255,255,1.0);
+    border-color: rgba(63, 81, 181, 0.61);
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.4), -1px -1px 0px rgba(0,0,0,0.4);
+}
+
+md-input-container label{
+    color: rgba(0,0,0,0.75);
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0), -1px -1px 0px rgba(255, 255, 255, 0);
+}

@@ -12,9 +12,10 @@
             <input type="text" ng-model="search" placeholder="Search..">
         </md-input-container>
         <md-list>
-            <md-list-item ng-repeat="template in templatesList | filter:search">
-                <a layout="row" layout-align="space-between center" ui-sref="{{template.templateItem.root}}">
-                    <span>{{template.templateItem.name}}</span>
+            <md-list-item ng-repeat="list in Lists | filter:search">
+
+                <a layout="row" layout-align="space-between center" ng-click="selectedTemplate(list.templateItemID)">
+                    <span>{{list.templateItemName}}</span>
                     <i class="material-icons">keyboard_arrow_right</i>
                 </a>
             </md-list-item>

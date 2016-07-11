@@ -30,7 +30,7 @@
         $scope.submitRepo=function(repoName,repoDesc){
             $scope.accessToken = $scope.profile.identities[0].access_token;
             var createUrl = 'https://api.github.com/user/repos?access_token=' + $scope.accessToken;
-            debugger;
+          
             var req = {
                 method: 'POST',
                 url: createUrl,
@@ -125,6 +125,7 @@
             url: templateAPI,
         }
         $http(req).success(function (data) {
+
             console.log('response', data);
             $scope.Lists = data[0].templatesList;
             var currentId = $stateParams.templateID;
@@ -147,12 +148,19 @@
 
         $scope.selectedTemplate = function(id) {
             $scope.tempId = id;
-            $state.go('.templatesDescriptionJson',{'templateID':id});
+
+            if(! $state.current.name=='success.templatelist.templatesDescriptionJson')
+            {
+                $state.go('.templatesDescriptionJson',{'templateID':id});
+            }
+
+            $state.go('success.templatelist.templatesDescriptionJson',{'templateID':id});
+
         }
 
         $scope.closePane= function(data){
             var vm = this;
-            vm.parentTag = $element.parent()[0].remove();
+           // vm.parentTag = $element.parent()[0].remove();
             $state.go(data);
             vm.animate = false;
         };

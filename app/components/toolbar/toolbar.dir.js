@@ -13,7 +13,8 @@
         };
     }
 
-    function toolbarController( $scope, auth, $http, $location, store, $rootScope ){
+    function toolbarController( $scope, auth, $http, $location, store, $rootScope,Fullscreen ){
+        $scope.isFullScreen = false;
         var originatorEv;
         this.openMenu = function($mdOpenMenu, ev) {
             originatorEv = ev;
@@ -28,9 +29,19 @@
         }
         var vm = this;
 
-        vm.toggleFullScreen = toggleFullScreen;
+         $scope.goFullscreen=toggleFullScreen;
 
         function toggleFullScreen() {
+         
+            
+      // Fullscreen
+      if (Fullscreen.isEnabled())
+         Fullscreen.cancel();
+      else
+         Fullscreen.all();
+
+     
+
         }
     }
 

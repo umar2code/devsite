@@ -8,6 +8,7 @@ angular.module('myApp', [
     'ngCookies',
     'myApp.login',
     'auth0',
+    'FBAngular',
     'ui.router',
     'ng.jsoneditor'
 ]).factory('factoryServices', function(){

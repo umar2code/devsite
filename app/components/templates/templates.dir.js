@@ -159,6 +159,7 @@
         }
 
         $scope.closePane= function(data){
+          
             var vm = this;
            // vm.parentTag = $element.parent()[0].remove();
             $state.go(data);

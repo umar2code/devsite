@@ -10,8 +10,8 @@ angular.module('myApp.login', ['ngRoute','angular-storage', 'angular-jwt','auth0
                                            jwtInterceptorProvider) {
 
             authProvider.init({
-                domain: 'veegamgithub.auth0.com',
-                clientID: 'M0Kfe0HEm0E4OlhJdl39OfHxOAQU1VJB'
+                domain: 'veegam.auth0.com',
+                clientID: 'ap5YqCuy0aHVTb38MDOvRS1J4bqgwBLW'
 
             });
             authProvider.on('loginSuccess', function($location, profilePromise, idToken, store,$rootScope) {

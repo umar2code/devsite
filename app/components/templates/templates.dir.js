@@ -28,6 +28,7 @@
 /////////////Creating New Repo
         ///////////////////////////////////////
         $scope.submitRepo=function(repoName,repoDesc){
+            
             $scope.accessToken = $scope.profile.identities[0].access_token;
             var createUrl = 'https://api.github.com/user/repos?access_token=' + $scope.accessToken;
           
@@ -96,11 +97,11 @@
             $scope.newRepoPane=false;
             $scope.repoListPane=true;
             var vm = this;
-            $scope.accessToken = $scope.profile.identities[0].access_token;
-            var viewUrl = 'https://api.github.com/user/repos?access_token=' + $scope.accessToken;
+            $scope.gitId = $scope.profile.identities[0].user_id;
+            var viewUrl = 'https://api.github.com/user/' + $scope.gitId +'/repos';
             var req = {
                 method: 'GET',
-                url: viewUrl,
+                url: viewUrl 
             }
             $http(req).success(function (response) {
                 $scope.repoList =response;

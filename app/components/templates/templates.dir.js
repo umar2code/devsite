@@ -8,6 +8,7 @@
     function templates($scope, $http, $state,store,auth,$mdDialog,$rootScope, $stateParams, $filter){
 
         $scope.profile=store.get('profile');
+        
         $scope.repoList;
         $scope.repoListPane=false;
         $scope.newRepoPane=false;
@@ -93,6 +94,7 @@
 
         }
         $scope.viewRepo= function(ev) {
+          
             $scope.commitPane=false;
             $scope.newRepoPane=false;
             $scope.repoListPane=true;

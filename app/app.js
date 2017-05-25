@@ -16,7 +16,7 @@ angular.module('myApp', [
 
         scrollRight :function (){
         var children = $('#widgetsWrapper').children();
-        var totalWidth = 0;
+        var totalWidth = 0;d
         for (var i = 0; i < children.length; i++) {
             totalWidth += children[i].offsetWidth;d
         }

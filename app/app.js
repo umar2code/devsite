@@ -18,7 +18,7 @@ angular.module('myApp', [
         var children = $('#widgetsWrapper').children();
         var totalWidth = 0;
         for (var i = 0; i < children.length; i++) {
-            totalWidth += children[i].offsetWidth;
+            totalWidth += children[i].offsetWidth;d
         }
         var elem = $('#panesContainer');
         elem.scrollLeft(totalWidth);

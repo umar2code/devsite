@@ -37,7 +37,7 @@ config([
         $routeProvider,
         $mdThemingProvider,
         $mdIconProvider,
-        $stateProvider,
+        $stateProvider,d
         $urlRouterProvider
     ) {
         $mdIconProvider.fontSet('md', 'material-icons');

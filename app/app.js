@@ -5,7 +5,7 @@ angular.module('myApp', [
     'myApp.layout',
     'myApp.version',
     'ngMaterial',
-    'ngCookies',d
+    'ngCookies',dd
     'myApp.login',
     'auth0',
     'FBAngular',

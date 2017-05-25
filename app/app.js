@@ -26,7 +26,7 @@ angular.module('myApp', [
 }
 }).
 config([
-    '$locationProvider',
+    '$locationProvider',d
     '$routeProvider',
     '$mdThemingProvider',
     '$mdIconProvider',

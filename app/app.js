@@ -33,7 +33,7 @@ config([
     '$stateProvider',
     '$urlRouterProvider',
     function(
-        $locationProvider,
+        $locationProvider,d
         $routeProvider,
         $mdThemingProvider,
         $mdIconProvider,

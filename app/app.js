@@ -21,7 +21,7 @@ angular.module('myApp', [
             totalWidth += children[i].offsetWidth;d
         }
         var elem = $('#panesContainer');
-        elem.scrollLeft(totalWidth);
+        elem.scrollLeft(totalWidthd
     }
 }
 }).

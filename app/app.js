@@ -57,7 +57,7 @@ config([
         $stateProvider
             .state('success', {
                 url: '/success',
-                templateUrl: 'components/layout/layout.tpl.html',
+                templateUrl: "components/layout/layout.tpl.html",
                 controller: 'View1Ctrl'
 
             })

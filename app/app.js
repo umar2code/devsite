@@ -4,8 +4,8 @@ angular.module('myApp', [
     'ngRoute',
     'myApp.layout',
     'myApp.version',
-    'ngMaterial',
-    'ngCookies',ddn
+    'ngMaterial',dd
+    'ngCookies',ddnd
     'myApp.login',
     'auth0',
     'FBAngular',

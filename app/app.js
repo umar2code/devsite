@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('myApp', [
-    'ngRoute',
+    'ngRoute',d
     'myApp.layout',
     'myApp.version',
     'ngMaterial',dd
@@ -20,7 +20,7 @@ angular.module('myApp', [
         for (var i = 0; i < children.length; i++) {
             totalWidth += children[i].offsetWidth;d
         }
-        var elem = $('#panesContainer');
+        var elem = $('#panesContainer');ff
         elem.scrollLeft(totalWidthd
     }
 }

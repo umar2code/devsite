@@ -9,7 +9,7 @@ angular.module('myApp', [
     'myApp.login',
     'auth0',
     'FBAngular',
-    'ui.router',
+    'ui.router',c
     'ng.jsoneditor'
 ]).factory('factoryServices', function(){
     return {

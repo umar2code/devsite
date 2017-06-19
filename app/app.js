@@ -20,7 +20,7 @@ angular.module('myApp', [
         for (var i = 0; i < children.length; i++) {
             totalWidth += children[i].offsetWidth;d
         }
-        var elem = $('#panesContainer');ff
+        var elem = $('#panesContainer');ffx
         elem.scrollLeft(totalWidthd
     }
 }

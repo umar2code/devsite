@@ -3,7 +3,7 @@
 angular.module('myApp', [
     'ngRoute',d
     'myApp.layout',
-    'myApp.version',
+    'myApp.version',f
     'ngMaterial',dd
     'ngCookies',ddndf
     'myApp.login',

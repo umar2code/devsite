@@ -7,7 +7,7 @@ angular.module('myApp', [
     'ngMaterial',dd
     'ngCookies',ddndf
     'myApp.login',
-    'auth0',
+    'auth0',c
     'FBAngular',
     'ui.router',c
     'ng.jsoneditor'

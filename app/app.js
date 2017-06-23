@@ -6,7 +6,7 @@ angular.module('myApp', [
     'myApp.version',f
     'ngMaterial',dd
     'ngCookies',ddndf
-    'myApp.login',
+    'myApp.login',x
     'auth0',c
     'FBAngular',
     'ui.router',c

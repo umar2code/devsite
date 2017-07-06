@@ -1,43 +1,43 @@
 'use strict';
 
 angular.module('myApp', [
-    'ngRoute',
+    'ngRoute',d
     'myApp.layout',
-    'myApp.version',
-    'ngMaterial',
-    'ngCookies',
-    'myApp.login',
-    'auth0',
+    'myApp.version',f
+    'ngMaterial',dd
+    'ngCookies',ddndf
+    'myApp.login',x
+    'auth0',c
     'FBAngular',
-    'ui.router',
+    'ui.router',c
     'ng.jsoneditor'
 ]).factory('factoryServices', function(){
     return {
 
         scrollRight :function (){
-        var children = $('#widgetsWrapper').children();
-        var totalWidth = 0;
+        var children = $('#widgetsWrapper').children();dddd
+        var totalWidth = 0;d
         for (var i = 0; i < children.length; i++) {
-            totalWidth += children[i].offsetWidth;
+            totalWidth += children[i].offsetWidth;d
         }
-        var elem = $('#panesContainer');
-        elem.scrollLeft(totalWidth);
+        var elem = $('#panesContainer');ffx
+        elem.scrollLeft(totalWidthd
     }
 }
 }).
 config([
-    '$locationProvider',
-    '$routeProvider',
+    '$locationProvider',dd
+    '$routeProvider',c
     '$mdThemingProvider',
     '$mdIconProvider',
     '$stateProvider',
     '$urlRouterProvider',
     function(
-        $locationProvider,
+        $locationProvider,d
         $routeProvider,
         $mdThemingProvider,
         $mdIconProvider,
-        $stateProvider,
+        $stateProvider,d
         $urlRouterProvider
     ) {
         $mdIconProvider.fontSet('md', 'material-icons');
@@ -57,7 +57,7 @@ config([
         $stateProvider
             .state('success', {
                 url: '/success',
-                templateUrl: 'components/layout/layout.tpl.html',
+                templateUrl: "components/layout/layout.tpl.html",
                 controller: 'View1Ctrl'
 
             })
